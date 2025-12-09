@@ -1,5 +1,32 @@
 // Add any additional repositories for your dependencies here.
 
 repositories {
-
+    exclusiveContent {
+        forRepository {
+            ivy {
+                name = 'Hbm-Nuclear-Tech-GIT'
+                url = 'https://github.com/HbmMods/Hbm-s-Nuclear-Tech-GIT/releases/download/'
+                patternLayout {
+                    // tag as folder, jar as file
+                    artifact '[revision]/HBM-NTM-.[revision].jar'
+                }
+                metadataSources { artifact() }
+            }
+        }
+        filter { includeGroup('Hbm-s-Nuclear-Tech-GIT') }
+    }
+    exclusiveContent {
+        forRepository {
+            ivy {
+                name = 'Hbm-Nuclear-Tech-GIT'
+                url "https://github.com/JameH2/Hbm-s-Nuclear-Tech-GIT/releases/download/${ntmSpaceTag}/"
+                patternLayout {
+                    artifact "HBM-NTM-.[revision].jar"
+                }
+                metadataSources { artifact() }
+            }
+        }
+        filter { includeGroup('Hbm-s-Nuclear-Tech-Space-GIT') }
+    }
+    mavenLocal()
 }

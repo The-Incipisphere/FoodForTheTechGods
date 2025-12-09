@@ -34,5 +34,21 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 dependencies {
-    //runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:2.7.69-GTNH:dev")
+    runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:${neiVersion}:dev")
+    devOnlyNonPublishable(rfg.deobf("curse.maven:pams-harvestcraft-221857:2270206")) // Pam's Harvestcraft v1.7.10Lb
+    devOnlyNonPublishable("com.github.GTNewHorizons:AppleCore:${applecoreVersion}")
+
+    /* Goddammit, i hate that i have to do this shit,
+     * but NTM and NTM:Space both have the same Mod ID,
+     * and forge doesn't like it if i try to load two mods with the same ID at once.
+     * So, I have to do this jank-ass shit if i want to test this mod against both NTM and NTM:Space.
+     */
+    def flavour = project.findProperty("ntmFlavour") ?: "base" // default to standard NTM if someone didn't define the variable
+    if (flavour.equalsIgnoreCase("base")) {
+        devOnlyNonPublishable("Hbm-s-Nuclear-Tech-GIT:HBM-NTM:${ntmBaseVersion}")
+    } else if (flavour.equalsIgnoreCase("space")) {
+        devOnlyNonPublishable("Hbm-s-Nuclear-Tech-Space-GIT:HBM-NTM:${ntmSpaceVersion}")
+    } else {
+        throw new GradleException("ntmFlavour must be 'base' or 'space', but it's currently '${flavour}'.")
+    }
 }

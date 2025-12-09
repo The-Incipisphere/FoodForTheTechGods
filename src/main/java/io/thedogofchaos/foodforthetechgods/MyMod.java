@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package io.thedogofchaos.foodforthetechgods;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

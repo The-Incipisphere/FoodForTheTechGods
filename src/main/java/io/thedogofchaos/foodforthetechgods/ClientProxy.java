@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package io.thedogofchaos.foodforthetechgods;
 
 public class ClientProxy extends CommonProxy {
 
