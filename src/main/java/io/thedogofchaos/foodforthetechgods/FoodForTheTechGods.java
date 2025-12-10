@@ -16,7 +16,9 @@ public class FoodForTheTechGods {
     public static final String MODID = "ffttg";
     public static final Logger LOG = LogManager.getLogger(MODID);
 
-    @SidedProxy(clientSide = "io.thedogofchaos.foodforthetechgods.ClientProxy", serverSide = "io.thedogofchaos.foodforthetechgods.CommonProxy")
+    @SidedProxy(
+        clientSide = "io.thedogofchaos.foodforthetechgods.ClientProxy",
+        serverSide = "io.thedogofchaos.foodforthetechgods.CommonProxy")
     public static CommonProxy proxy;
 
     @Mod.EventHandler

@@ -33,22 +33,31 @@
  *
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
-dependencies { // TODO: think about whether devOnlyNonPublishable() is the best method of pulling in most of these dependencies.
-    runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:${neiVersion}:dev")
-    devOnlyNonPublishable(rfg.deobf("curse.maven:pams-harvestcraft-221857:2270206")) // Pam's Harvestcraft v1.7.10Lb
-    devOnlyNonPublishable("com.github.GTNewHorizons:AppleCore:${applecoreVersion}")
+dependencies {
+    implementation("com.github.GTNewHorizons:AppleCore:${applecoreVersion}") // Look, we're gonna be doing a lot of food-related jank, okay?
+
+    compileOnly(rfg.deobf("curse.maven:pams-harvestcraft-221857:2270206")) // Pam's Harvestcraft v1.7.10Lb
+    runtimeOnlyNonPublishable(rfg.deobf("curse.maven:pams-harvestcraft-221857:2270206")) // I actually *need* to be able to test this shit, y'know?
+
+    /* Include both NTM and NTM Space as optional dependencies.
+     * I have a feeling that Intellij is going to be shouting at me a LOT.
+     */
+    compileOnly("Hbm-s-Nuclear-Tech-GIT:HBM-NTM:${ntmBaseVersion}")
+    compileOnly("Hbm-s-Nuclear-Tech-Space-GIT:HBM-NTM:${ntmSpaceVersion}")
 
     /* Goddammit, i hate that i have to do this shit,
      * but NTM and NTM:Space both have the same Mod ID,
-     * and forge doesn't like it if i try to load two mods with the same ID at once.
-     * So, I have to do this jank-ass shit if i want to test this mod against both NTM and NTM:Space.
+     * and forge doesn't like it if i try to load two mods with the same ID at once,
+     * so I have to do this jank-ass branching if i want to test this mod against both NTM and NTM:Space.
      */
     def flavour = project.findProperty("ntmFlavour") ?: "base" // default to standard NTM if someone didn't define the variable
     if (flavour.equalsIgnoreCase("base")) {
-        devOnlyNonPublishable("Hbm-s-Nuclear-Tech-GIT:HBM-NTM:${ntmBaseVersion}")
+        runtimeOnly("Hbm-s-Nuclear-Tech-GIT:HBM-NTM:${ntmBaseVersion}")
     } else if (flavour.equalsIgnoreCase("space")) {
-        devOnlyNonPublishable("Hbm-s-Nuclear-Tech-Space-GIT:HBM-NTM:${ntmSpaceVersion}")
+        runtimeOnly("Hbm-s-Nuclear-Tech-Space-GIT:HBM-NTM:${ntmSpaceVersion}")
     } else {
         throw new GradleException("ntmFlavour must be 'base' or 'space', but it's currently '${flavour}'.")
     }
+
+    runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:${neiVersion}:dev") // this might become implementation() at some point
 }
