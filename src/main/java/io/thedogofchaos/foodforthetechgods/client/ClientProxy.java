@@ -1,4 +1,6 @@
-package io.thedogofchaos.foodforthetechgods;
+package io.thedogofchaos.foodforthetechgods.client;
+
+import io.thedogofchaos.foodforthetechgods.common.CommonProxy;
 
 public class ClientProxy extends CommonProxy {
 

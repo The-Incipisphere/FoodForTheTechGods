@@ -6,12 +6,12 @@ import net.minecraftforge.common.config.Configuration;
 
 public class Config {
 
-    public static String greeting = "Hello World";
+    public static boolean shouldUnfuckPamsRecipes = true;
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        greeting = configuration.getString("greeting", Configuration.CATEGORY_GENERAL, greeting, "How shall I greet?");
+        shouldUnfuckPamsRecipes = configuration.getBoolean("unfuckPamsRecipes", Configuration.CATEGORY_GENERAL, shouldUnfuckPamsRecipes, "Should we unfuck (fix) duplicated recipes from Pam's Harvestcraft?");
 
         if (configuration.hasChanged()) {
             configuration.save();
