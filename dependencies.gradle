@@ -33,7 +33,7 @@
  *
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
-dependencies {
+dependencies { // TODO: think about whether devOnlyNonPublishable() is the best method of pulling in most of these dependencies.
     runtimeOnlyNonPublishable("com.github.GTNewHorizons:NotEnoughItems:${neiVersion}:dev")
     devOnlyNonPublishable(rfg.deobf("curse.maven:pams-harvestcraft-221857:2270206")) // Pam's Harvestcraft v1.7.10Lb
     devOnlyNonPublishable("com.github.GTNewHorizons:AppleCore:${applecoreVersion}")
