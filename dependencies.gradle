@@ -43,7 +43,7 @@ dependencies {
      * I have a feeling that Intellij is going to be shouting at me a LOT.
      */
     compileOnly("Hbm-s-Nuclear-Tech-GIT:HBM-NTM:${ntmBaseVersion}")
-    compileOnly("Hbm-s-Nuclear-Tech-Space-GIT:HBM-NTM:${ntmSpaceVersion}")
+    // compileOnly("Hbm-s-Nuclear-Tech-Space-GIT:HBM-NTM:${ntmSpaceVersion}")
 
     /* Goddammit, i hate that i have to do this shit,
      * but NTM and NTM:Space both have the same Mod ID,
