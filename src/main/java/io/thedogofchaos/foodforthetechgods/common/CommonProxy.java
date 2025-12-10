@@ -17,7 +17,7 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
-        FoodForTheTechGods.LOG.info("FoodForTheTechGods at version " + Tags.VERSION +", loading fine (so far...)");
+
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
