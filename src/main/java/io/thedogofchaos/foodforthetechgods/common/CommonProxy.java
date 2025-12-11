@@ -6,9 +6,9 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import io.thedogofchaos.foodforthetechgods.Config;
-import io.thedogofchaos.foodforthetechgods.FoodForTheTechGods;
-import io.thedogofchaos.foodforthetechgods.Tags;
 import io.thedogofchaos.foodforthetechgods.common.fixes.UnfuckPamsRecipes;
+import io.thedogofchaos.foodforthetechgods.common.item.ModItems;
+import io.thedogofchaos.foodforthetechgods.common.item.ModOreDict;
 
 public class CommonProxy {
 
@@ -17,7 +17,9 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
-
+        // ModBlocks.register();
+        ModItems.register();
+        ModOreDict.register();
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)

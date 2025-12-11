@@ -11,7 +11,11 @@ public class Config {
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        shouldUnfuckPamsRecipes = configuration.getBoolean("unfuckPamsRecipes", Configuration.CATEGORY_GENERAL, shouldUnfuckPamsRecipes, "Should we unfuck (fix) duplicated recipes from Pam's Harvestcraft?");
+        shouldUnfuckPamsRecipes = configuration.getBoolean(
+            "unfuckPamsRecipes",
+            Configuration.CATEGORY_GENERAL,
+            shouldUnfuckPamsRecipes,
+            "Should we unfuck (fix) duplicated recipes from Pam's Harvestcraft?");
 
         if (configuration.hasChanged()) {
             configuration.save();
