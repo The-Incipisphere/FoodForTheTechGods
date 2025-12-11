@@ -11,7 +11,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import io.thedogofchaos.foodforthetechgods.common.CommonProxy;
 
-@Mod(modid = FoodForTheTechGods.MODID, version = Tags.VERSION, name = "FoodForTheTechGods", acceptedMinecraftVersions = "[1.7.10]")
+@Mod(
+    modid = FoodForTheTechGods.MODID,
+    version = Tags.VERSION,
+    name = "FoodForTheTechGods",
+    acceptedMinecraftVersions = "[1.7.10]")
 public class FoodForTheTechGods {
 
     public static final String MODID = "ffttg";

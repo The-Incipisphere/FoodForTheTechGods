@@ -1,11 +1,12 @@
 package io.thedogofchaos.foodforthetechgods.common.fixes;
 
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
+import java.util.HashSet;
+import java.util.Set;
+
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.util.HashSet;
-import java.util.Set;
+import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 
 public class UnfuckPamsRecipes {
 
@@ -20,15 +21,13 @@ public class UnfuckPamsRecipes {
         fixTheRecipes(event);
     }
 
-    private static void fixTheRecipes(FMLPostInitializationEvent event) {
-    }
+    private static void fixTheRecipes(FMLPostInitializationEvent event) {}
 
     private static void standardiseTheSalts(FMLPostInitializationEvent event) {
         Set<ItemStack> saltsToStandardise = new HashSet<>();
 
         saltsToStandardise.addAll(OreDictionary.getOres("itemSalt"));
         saltsToStandardise.addAll(OreDictionary.getOres("foodSalt"));
-
 
     }
 }
