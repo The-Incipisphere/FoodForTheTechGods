@@ -6,6 +6,6 @@ public class ModOreDict {
 
     public static void register() {
         OreDictionary.registerOre("itemSalt", ModItems.scuffedSalt1);
-        OreDictionary.registerOre("foodSalt", ModItems.scuffedSalt2);
+        OreDictionary.registerOre("dustSalt", ModItems.scuffedSalt2);
     }
 }

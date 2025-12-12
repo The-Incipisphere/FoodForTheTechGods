@@ -27,7 +27,7 @@ public class CommonProxy {
 
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
-        if (Loader.isModLoaded("harvestcraft") && Config.shouldUnfuckPamsRecipes) UnfuckPamsRecipes.dewit(event);
+        if (Loader.isModLoaded("harvestcraft") && Config.shouldUnfuckPamsRecipes) UnfuckPamsRecipes.dewit();
     }
 
     // register server commands in this event handler (Remove if not needed)
